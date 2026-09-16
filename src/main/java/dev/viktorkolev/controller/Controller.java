@@ -19,21 +19,25 @@ public class Controller {
     }
 
     public static void saveToTXT(WorkItem item, int type) {
-        BufferedWriter writer = null;
+        BufferedWriter writer;
+        String container, suffix;
+
+        if (type == 1) {
+            container = item.getSiteHTML().html();
+            suffix = ".html";
+        } else {
+            container = item.getSiteHTML().body().text();
+            suffix = ".txt";
+        }
+
         try
         {
-            writer = new BufferedWriter( new FileWriter("/home/vixata/Desktop/text" + fileCount++ + ".txt"));
-
-            if (type == 1) {
-                writer.write(item.getSiteHTML().html());
-            } else {
-                writer.write(item.getSiteHTML().body().text());
-            }
-
+            writer = new BufferedWriter( new FileWriter("/home/vixata/Desktop/text" + fileCount++ + suffix));
+            writer.write(container);
             writer.close();
         }
         catch (IOException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         }
     }
 }
