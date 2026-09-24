@@ -18,7 +18,7 @@ public class Controller {
         item.setSiteHTML(doc);
     }
 
-    public static void saveToTXT(WorkItem item, int type) {
+    public static void saveToFile(WorkItem item, int type) {
         BufferedWriter writer;
         String container, suffix;
 

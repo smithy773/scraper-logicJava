@@ -22,29 +22,29 @@ public class Main {
 
             switch(option) {
                 case 1:
-                    System.out.println("EXECUTION HERE (INPUT URL)");
-                    // Call the Controller - Controller.execute(WorkItem(siteURL));
                     int choice = 0;
 
                     System.out.print("Please input the URL of the website you want to convert: ");
+                    // TRY TO CREATE THE WORKITEM. IF FAIL, INFORM USER INSTEAD OF ERROR and ask for new url. CATCH ILLEGALARGUMENTEXCEPTION HERE, THROW IT IN THE WORKITEM CONSTRUCTOR'S VALIDATION
                     WorkItem item = new WorkItem(scanner.next());
 
                     while (choice != 3) {
 
-                        System.out.print("\nSave the website as:\n1) HTML text\n2) just text\n\nBoth will be saved as a '.txt' file.");
+                        System.out.print("\nSave the website as:\n1) HTML text\n2) just text\n\nOption: ");
                         choice = Integer.parseInt(scanner.next());
 
                         System.out.println("Fetching HTML...");
+                        //TRY-CATCH HERE AS WELL. HAVE THE fetchHTML method throw an IllegalArgumentException error in the Controller and catch it here, displaying a message to the user
                         Controller.fetchHTML(item);
 
                         System.out.println(item.getURL());
 
                         switch (choice) {
                             case 1:
-                                Controller.saveToTXT(item, 1);
+                                Controller.saveToFile(item, 1);
                                 break;
                             case 2:
-                                Controller.saveToTXT(item, 2);
+                                Controller.saveToFile(item, 2);
                                 break;
                             case 3:
                                 break;
@@ -59,7 +59,7 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("Additional information here...");
+                    System.out.println("\n\nAdditional information:\nSite2Text is a rudimentary web scraper. It allows the user to ");
                     break;
                 case 3:
                     break;

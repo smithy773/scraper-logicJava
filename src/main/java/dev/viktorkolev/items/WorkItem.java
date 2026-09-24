@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document;
 public class WorkItem {
     private final String siteURL;
     private Document siteHTML;
+    //private int itemID;
 
     public WorkItem(String siteURL) {
         // Add validation logic later on
