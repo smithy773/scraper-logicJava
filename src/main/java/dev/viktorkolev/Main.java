@@ -59,7 +59,7 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("\n\nAdditional information:\nSite2Text is a rudimentary web scraper. It allows the user to ");
+                    System.out.println("\n\nAdditional information:\nSite2Text is a rudimentary web scraper created by Viktor Kolev for the 'Programming' course of the Software Engineering program in Plovdiv University. It allows the user to convert a site to text via a provided link and then save it as HTML in an .html file or as text in a .txt file");
                     break;
                 case 3:
                     break;

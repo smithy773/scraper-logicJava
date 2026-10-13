@@ -4,12 +4,15 @@ import dev.viktorkolev.items.WorkItem;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import javax.swing.filechooser.FileSystemView;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Controller {
     private static int fileCount = 1;
+    private static final String homeDir = FileSystemView.getFileSystemView().getHomeDirectory().getAbsolutePath();
 
     public static void fetchHTML(WorkItem item) throws IOException {
         // ADD TRY / CATCH LATER ON + REMOVE "throws IOException"
@@ -32,7 +35,7 @@ public class Controller {
 
         try
         {
-            writer = new BufferedWriter( new FileWriter("/home/vixata/Desktop/text" + fileCount++ + suffix));
+            writer = new BufferedWriter( new FileWriter(homeDir + File.separatorChar + "SavedFile" + fileCount++ + suffix));
             writer.write(container);
             writer.close();
         }
