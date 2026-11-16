@@ -17,7 +17,12 @@ public class Main {
 
         while (option != 3) {
             System.out.print("\n\nMenu\n1) Convert site to text\n2) Additional info\n3) Exit\n\nPlease select an option (1-3): ");
-            option = Integer.parseInt(scanner.next());
+
+            try {
+                option = Integer.parseInt(scanner.next());
+            } catch (NumberFormatException e) {
+                option = 0;
+            }
 
             switch(option) {
                 case 1:
@@ -46,7 +51,9 @@ public class Main {
                                 case 3:
                                     break;
                                 default:
+                                    System.out.println("\n\n===============");
                                     System.out.println("Invalid input - please input a valid choice (1-3)");
+                                    System.out.println("===============");
                                     break;
                             }
 
@@ -65,7 +72,9 @@ public class Main {
                 case 3:
                     break;
                 default:
+                    System.out.println("\n\n===============");
                     System.out.println("Please input a valid option (1-3)");
+                    System.out.println("===============");
                     break;
             }
         }

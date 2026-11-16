@@ -1,7 +1,6 @@
 package dev.viktorkolev.controller;
 
 import dev.viktorkolev.items.WorkItem;
-import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -21,10 +20,7 @@ public class Controller {
             item.setSiteHTML(doc);
 
             return true;
-        } catch (HttpStatusException e) {
-            System.out.println("HTTP error: " + e.getStatusCode());
-            return false;
-        } catch (IOException e) {
+        } catch (RuntimeException | IOException e) {
             if (e.getMessage() == null) {
                 System.out.println("Request failed: Empty or nonexistent site");
             } else {
